@@ -22,13 +22,13 @@ const createSendToken = async function (
   await user.save({ validateBeforeSave: false });
 
   res.cookie('refreshToken', refreshToken, {
-    httpOnly: true,
+    httpOnly: false,
     maxAge: 7 * 24 * 60 * 60 * 1000,
     secure: process.env.NODE_ENV === "production",
     sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
-    domain: process.env.NODE_ENV === "production"
-      ? "your-frontend-domain.vercel.app"
-      : "localhost",
+    // domain: process.env.NODE_ENV === "production"
+    //   ? "your-frontend-domain.vercel.app"
+    //   : "localhost",
     path: "/",
   });
 
@@ -265,3 +265,4 @@ exports.resetPassword = catchAsync(async function (req, res, next) {
 });
 
 exports.newPassword = catchAsync(async function (req, res, next) { });
+
