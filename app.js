@@ -19,7 +19,7 @@ app.use(morgan('dev'));
 
 app.use(
   cors({
-    origin: 'http://localhost:8080',
+    origin: ['http://localhost:8080', 'https://trackizer-frontend.vercel.app'],
     credentials: true,
   })
 );
@@ -41,3 +41,4 @@ app.use('/api/v1/categories', categoryRoute);
 app.use(globalErrorHandler);
 
 module.exports = app;
+
