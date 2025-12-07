@@ -26,9 +26,7 @@ res.cookie("refreshToken", refreshToken, {
   secure: process.env.NODE_ENV === "production", // true on Render
   sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
   maxAge: 7 * 24 * 60 * 60 * 1000,
-  domain: process.env.NODE_ENV === "production"
-    ? "https://trackizer-frontend.vercel.app"
-    : "localhost",
+
   path: "/"
 });
 
@@ -265,5 +263,6 @@ exports.resetPassword = catchAsync(async function (req, res, next) {
 });
 
 exports.newPassword = catchAsync(async function (req, res, next) { });
+
 
 
